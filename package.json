@@ -21,5 +21,8 @@
     "boxicons": "^2.0.5",
     "dompurify": "^2.1.1",
     "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
   }
 }
