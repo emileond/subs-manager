@@ -1,5 +1,3 @@
-import DOMPurify from 'dompurify';
-
 const subsContainer = document.querySelector('.subscriptions');
 const subsListActive = document.querySelector('.subscriptions--list');
 const subsListInactive = document.querySelector('.subscriptions--list__inactive')
