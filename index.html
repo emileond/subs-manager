@@ -14,13 +14,13 @@
     <div class="subscriptions">
         <form class="add-subscription" autocomplete="off">
             <label for="itemName"> Name:</label>
-            <input class="input" type="text" name="itemName">
+            <input class="input" type="text" name="itemName" required>
 
             <label for="itemCat"> Category:</label>
             <input class="input" type="text" name="itemCat">
 
             <label for="itemCost"> Cost:</label>
-            <input class="input" type="number" min="1" step="any" name="itemCost">
+            <input class="input" type="number" step="any" name="itemCost" value="0.00">
 
             <label for="billing">Billing Period:</label>
 
@@ -36,8 +36,9 @@
             <button class="btn" type="submit">+ Add Subscription</button>
         </form>
         <div class="total">
-            
+            <h3>Total: </h3>
         </div>
+        <h2>Active</h2>
         <ul class="subscriptions--list">
             <!-- <div class="subscriptions--card">
                 <img src="https://logo.clearbit.com/netflix.com">
@@ -48,6 +49,9 @@
                     <span>$12.00 / month</span>
                 </div>
             </div> -->
+        </ul>
+        <h2>Inactive</h2>
+        <ul class="subscriptions--list subscriptions--list__inactive">
         </ul>
     </div>
     <script src="script.js"></script>
