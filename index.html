@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Manager</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Subscriptions Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="subscriptions">
+        <form class="add-subscription" autocomplete="off">
+            <input class="input" type="text" name="itemName" id="subs--item">
+            <button class="btn" type="submit">+ Add Subscription</button>
+        </form>
+        <ul class="subscriptions--list">
+            <!-- <div class="subscriptions--card">
+                <img src="https://logo.clearbit.com/netflix.com">
+                <div class="subscriptions--card__details">
+                    <h4>Netflix</h4>
+                </div>
+                <div class="subscriptions--card__price">
+                    <span>$12.00 / month</span>
+                </div>
+            </div> -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

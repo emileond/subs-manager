@@ -1,0 +1,28 @@
+.btn {
+    font-family: inherit;
+    display: inline-block;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    background-color: $color-violet;
+    padding: 12px 32px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-align: center;
+    outline: none;
+    border-bottom: 3px solid darken($color-violet, 20%);
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($color-violet, 5%);
+        border-color: darken($color-violet, 10%);
+    }
+    &:active {
+
+        background-color: darken($color-violet, 5%);
+        border-color: darken($color-violet, 20%);
+    }
+}
