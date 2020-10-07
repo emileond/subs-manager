@@ -1,0 +1,17 @@
+.header {
+    color: white;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    background: $color-indigo;
+    padding: 2rem 1rem;
+    border-radius: 0 0 2rem 2rem;
+    margin-bottom: 1rem;
+    h1 {
+        font-weight: 500;
+    }
+    h2 {
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,22 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: .8rem 0;
+    ul {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        text-align: center;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    li {
+        color: $color-gray;
+        display: inline-block;
+        font-size: 2rem;
+    }
+}

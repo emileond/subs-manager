@@ -1,3 +1,6 @@
+import DOMPurify from 'dompurify';
+import 'boxicons'
+
 const subsContainer = document.querySelector('.subscriptions');
 const subsListActive = document.querySelector('.subscriptions--list');
 const subsListInactive = document.querySelector('.subscriptions--list__inactive')
@@ -9,8 +12,8 @@ let subscriptionsState = [];
 function handleSubmit(e) {
     e.preventDefault();
 
-    const name = e.currentTarget.itemName.value;
-    const category = e.currentTarget.itemCat.value;
+    const name = DOMPurify.sanitize(e.currentTarget.itemName.value, {ALLOWED_TAGS: ['b']})
+    const category = DOMPurify.sanitize(e.currentTarget.itemCat.value, {ALLOWED_TAGS: ['b']});
     let cost = parseFloat(e.currentTarget.itemCost.value);
 
     cost ? cost : cost = 0
@@ -87,7 +90,7 @@ function updateTotal() {
 
     console.log('new total is ' + total);
 
-    const html = `<h3>Total: $${total}</h3>`;
+    const html = `<h2>Total: $${total}</h2>`;
 
     totalContainer.innerHTML = html;
 }

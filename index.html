@@ -12,6 +12,12 @@
 
 <body>
     <div class="subscriptions">
+        <header class="header">
+            <h1>Subscriptions</h1>
+            <div class="total">
+                <h2>Total: </h2>
+            </div>
+        </header>
         <form class="add-subscription" autocomplete="off">
             <label for="itemName"> Name:</label>
             <input class="input" type="text" name="itemName" required>
@@ -35,9 +41,6 @@
 
             <button class="btn" type="submit">+ Add Subscription</button>
         </form>
-        <div class="total">
-            <h3>Total: </h3>
-        </div>
         <h2>Active</h2>
         <ul class="subscriptions--list">
             <!-- <div class="subscriptions--card">
@@ -54,7 +57,15 @@
         <ul class="subscriptions--list subscriptions--list__inactive">
         </ul>
     </div>
+    <nav class="navbar">
+        <ul>
+            <li><ion-icon name="albums"></ion-icon></li>
+            <li><ion-icon name="pie-chart"></ion-icon></li>
+            <li><ion-icon name="settings"></ion-icon></li>
+        </ul>
+    </nav>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 
 </html>
