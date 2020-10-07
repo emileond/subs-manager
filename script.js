@@ -1,5 +1,6 @@
 const subsContainer = document.querySelector('.subscriptions');
-const subsList = document.querySelector('.subscriptions--list');
+const subsListActive = document.querySelector('.subscriptions--list');
+const subsListInactive = document.querySelector('.subscriptions--list__inactive')
 const addForm = document.querySelector('.add-subscription');
 const totalContainer = document.querySelector('.total')
 
@@ -10,7 +11,9 @@ function handleSubmit(e) {
 
     const name = e.currentTarget.itemName.value;
     const category = e.currentTarget.itemCat.value;
-    const cost = parseFloat(e.currentTarget.itemCost.value);
+    let cost = parseFloat(e.currentTarget.itemCost.value);
+
+    cost ? cost : cost = 0
 
     if (!name) return;
 
@@ -18,7 +21,8 @@ function handleSubmit(e) {
         name: name,
         id: Date.now(),
         cost: cost,
-        category: category
+        category: category,
+        isActive: true
     }
 
     console.log(subsItem.id)
@@ -36,7 +40,10 @@ function handleSubmit(e) {
 }
 
 function displaySubs() {
-    const html = subscriptionsState.map(item => `
+    const inactivesubs = subscriptionsState.filter(item => !item.isActive);
+    const activesubs = subscriptionsState.filter(item => item.isActive);
+
+    const activeCards = activesubs.map(item => `
         <div class="subscriptions--card">
             <img src="https://logo.clearbit.com/${item.name}.com"/>
             <div class="subscriptions--card__details">
@@ -45,15 +52,38 @@ function displaySubs() {
             </div>
             <div class="subscriptions--card__price">
                 <span>$${item.cost} / month</span>
+                <label class="label toggle">
+                    <div class="toggle-control"></div>
+                    <input type="checkbox" value="${item.id}" ${item.isActive ? 'checked' : null}/>
+                </label>
         </div>
         </div>
-    `).join(' ')
+    `).join('')
 
-    subsList.innerHTML = html;
+    const inactiveCards = inactivesubs.map(item => `
+    <div class="subscriptions--card">
+        <img src="https://logo.clearbit.com/${item.name}.com"/>
+        <div class="subscriptions--card__details">
+            <h4>${item.name}</h4>
+            <span>${item.category}</span>
+        </div>
+        <div class="subscriptions--card__price">
+            <span>$${item.cost} / month</span>
+            <label class="label toggle">
+                <div class="toggle-control"></div>
+                <input type="checkbox" value="${item.id}" ${item.isActive ? 'checked' : null}/>
+            </label>
+    </div>
+    </div>
+`).join('')
+
+    subsListActive.innerHTML = activeCards;
+    subsListInactive.innerHTML = inactiveCards;
 }
 
 function updateTotal() {
-    const total = subscriptionsState.reduce((tots, obj) => obj.cost + tots, 0);
+    const activeSubs = subscriptionsState.filter(item => item.isActive)
+    const total = activeSubs.reduce((tots, obj) => obj.cost + tots, 0);
 
     console.log('new total is ' + total);
 
@@ -62,6 +92,21 @@ function updateTotal() {
     totalContainer.innerHTML = html;
 }
 
+function toggleActive(id) {
+    const itemRef = subscriptionsState.find( item => item.id === id);
+
+    itemRef.isActive = !itemRef.isActive;
+
+    subsContainer.dispatchEvent(new CustomEvent('stateUpdated'));
+}
+
 addForm.addEventListener('submit', handleSubmit);
 subsContainer.addEventListener('stateUpdated', displaySubs)
 subsContainer.addEventListener('stateUpdated', updateTotal)
+
+subsContainer.addEventListener('click', function(e){
+    const id = parseInt(e.target.value)
+    if ( e.target.matches('input[type="checkbox"]') ) {
+        toggleActive(id)
+    }
+})
