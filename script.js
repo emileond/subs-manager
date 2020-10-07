@@ -1,6 +1,7 @@
 const subsContainer = document.querySelector('.subscriptions');
 const subsList = document.querySelector('.subscriptions--list');
 const addForm = document.querySelector('.add-subscription');
+const totalContainer = document.querySelector('.total')
 
 let subscriptionsState = [];
 
@@ -8,17 +9,19 @@ function handleSubmit(e) {
     e.preventDefault();
 
     const name = e.currentTarget.itemName.value;
+    const category = e.currentTarget.itemCat.value;
+    const cost = parseFloat(e.currentTarget.itemCost.value);
 
-    const price = 5.00;
-
-    const category = 'Entertainment';
+    if (!name) return;
 
     const subsItem = {
         name: name,
-        id: toString(Date.now()),
-        price: price,
+        id: Date.now(),
+        cost: cost,
         category: category
     }
+
+    console.log(subsItem.id)
 
     // Push new item into state
     subscriptionsState.push(subsItem)
@@ -35,19 +38,30 @@ function handleSubmit(e) {
 function displaySubs() {
     const html = subscriptionsState.map(item => `
         <div class="subscriptions--card">
-            <img src="https://logo.clearbit.com/${item.name}.com" />
+            <img src="https://logo.clearbit.com/${item.name}.com"/>
             <div class="subscriptions--card__details">
                 <h4>${item.name}</h4>
+                <span>${item.category}</span>
             </div>
             <div class="subscriptions--card__price">
-                <span>$${item.price} / month</span>
+                <span>$${item.cost} / month</span>
         </div>
         </div>
-    `).join()
+    `).join(' ')
 
     subsList.innerHTML = html;
 }
 
+function updateTotal() {
+    const total = subscriptionsState.reduce((tots, obj) => obj.cost + tots, 0);
+
+    console.log('new total is ' + total);
+
+    const html = `<h3>Total: $${total}</h3>`;
+
+    totalContainer.innerHTML = html;
+}
 
 addForm.addEventListener('submit', handleSubmit);
 subsContainer.addEventListener('stateUpdated', displaySubs)
+subsContainer.addEventListener('stateUpdated', updateTotal)

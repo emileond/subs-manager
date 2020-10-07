@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscriptions Manager</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="subscriptions">
         <form class="add-subscription" autocomplete="off">
-            <input class="input" type="text" name="itemName" id="subs--item">
+            <label for="itemName"> Name:</label>
+            <input class="input" type="text" name="itemName">
+
+            <label for="itemCat"> Category:</label>
+            <input class="input" type="text" name="itemCat">
+
+            <label for="itemCost"> Cost:</label>
+            <input class="input" type="number" min="1" step="any" name="itemCost">
+
+            <label for="billing">Billing Period:</label>
+
+            <select name="billing">
+                <option value="monthly">Monthly</option>
+                <option value="weekly">Weekly</option>
+                <option value="yearly">Yearly</option>
+            </select>
+
+            <label for="firstPayment"> First payment:</label>
+            <input class="input" type="date" min="1" step="any" name="firstPayment">
+
             <button class="btn" type="submit">+ Add Subscription</button>
         </form>
+        <div class="total">
+            
+        </div>
         <ul class="subscriptions--list">
             <!-- <div class="subscriptions--card">
                 <img src="https://logo.clearbit.com/netflix.com">
@@ -27,4 +52,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
