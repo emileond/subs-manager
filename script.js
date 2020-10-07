@@ -100,9 +100,23 @@ function toggleActive(id) {
     subsContainer.dispatchEvent(new CustomEvent('stateUpdated'));
 }
 
+function saveInLocalStorage() {
+    localStorage.setItem('subscriptions', JSON.stringify(subscriptionsState))
+}
+
+function loadFromLocalStorage() {
+    const localStorageItems = JSON.parse(localStorage.getItem('subscriptions'));
+
+    if (localStorageItems.length) {
+        subscriptionsState.push(...localStorageItems);
+    }
+    subsContainer.dispatchEvent(new CustomEvent('stateUpdated'))
+}
+
 addForm.addEventListener('submit', handleSubmit);
-subsContainer.addEventListener('stateUpdated', displaySubs)
-subsContainer.addEventListener('stateUpdated', updateTotal)
+subsContainer.addEventListener('stateUpdated', displaySubs);
+subsContainer.addEventListener('stateUpdated', updateTotal);
+subsContainer.addEventListener('stateUpdated', saveInLocalStorage);
 
 subsContainer.addEventListener('click', function(e){
     const id = parseInt(e.target.value)
@@ -110,3 +124,5 @@ subsContainer.addEventListener('click', function(e){
         toggleActive(id)
     }
 })
+
+loadFromLocalStorage()
