@@ -1,5 +1,4 @@
 import DOMPurify from 'dompurify';
-import 'boxicons'
 
 const subsContainer = document.querySelector('.subscriptions');
 const subsListActive = document.querySelector('.subscriptions--list');
