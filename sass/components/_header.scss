@@ -3,18 +3,23 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+
     &__headline {
         grid-column-start: 1;
+
         h1 {
             display: inline;
             font-weight: 600;
             margin-right: 1rem;
         }
+
         h2 {
             font-weight: 500;
+            color: $color-text-2;
         }
     }
-    .btn__container{
+
+    .btn__container {
         grid-column-start: 2;
         justify-self: right;
     }
@@ -22,4 +27,12 @@
 
 .total {
     display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        .btn__container {
+            display: none;
+        }
+    }
 }

@@ -1,4 +1,9 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #f2f4f8;
+    color: $color-text-1;
+
+    h2 {
+        font-weight: 600;
+    }
 }

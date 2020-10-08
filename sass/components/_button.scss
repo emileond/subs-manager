@@ -11,7 +11,7 @@
     border-radius: 2rem;
     text-align: center;
     outline: none;
-    border-bottom: 3px solid darken($color-violet, 20%);
+    border: 0;
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
     cursor: pointer;
     &:hover {
@@ -22,5 +22,33 @@
 
         background-color: darken($color-violet, 5%);
         border-color: darken($color-violet, 20%);
+    }
+}
+.action-btn {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 12vh;
+    right: 2rem;
+    z-index: 99;
+    background-color: $color-violet;
+    border-radius: 50px;
+    color: #ffffff;
+    text-decoration: none;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    &:hover {
+        background-color: darken($color-violet, 5%);
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .action-btn{
+        display: flex;
     }
 }
