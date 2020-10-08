@@ -344,6 +344,25 @@ body {
 }
 body h2 {
   font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0 0 1.2rem 0;
+}
+body a {
+  text-decoration: none;
+}
+
+.wrapper {
+  padding: 2rem 1rem;
+}
+
+.transition-fade {
+  transition: 0.3s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
 }
 
 .subscriptions {
@@ -365,8 +384,14 @@ body h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
+  margin: 0 0 2rem 0;
 }
 
+@media screen and (max-width: 768px) {
+  .subscriptions--list {
+    gap: 0.5rem;
+  }
+}
 .btn {
   font-family: inherit;
   display: inline-block;
@@ -414,6 +439,11 @@ body h2 {
 }
 .action-btn:hover {
   background-color: #5536b2;
+}
+
+.back-btn {
+  color: #364fc7;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -533,6 +563,8 @@ input:checked + .slider:before {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  height: 68px;
+  margin-bottom: 1.5rem;
 }
 .header__headline {
   grid-column-start: 1;
@@ -580,7 +612,7 @@ input:checked + .slider:before {
 .navbar li {
   color: #ced4da;
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .modal-outer {
@@ -608,6 +640,10 @@ input:checked + .slider:before {
 
 form {
   text-align: left;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 form input {
   box-sizing: border-box;
@@ -619,6 +655,10 @@ form input {
 }
 form label {
   font-weight: 600;
+}
+
+.empty-state {
+  color: #868e96;
 }
 
 /*# sourceMappingURL=styles.css.map */

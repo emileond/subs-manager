@@ -46,7 +46,10 @@
         background-color: darken($color-violet, 5%);
     }
   }
-
+.back-btn {
+    color: $color-indigo;
+    font-size: 2rem;
+}
 @media screen and (max-width: 768px) {
     .action-btn{
         display: flex;

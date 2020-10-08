@@ -3,6 +3,13 @@
     margin-inline-start: 0;
     padding-inline-start: 0;
     display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
+    margin: 0 0 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .subscriptions--list {
+        gap: .5rem;
+    }
 }
