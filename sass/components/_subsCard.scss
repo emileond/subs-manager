@@ -1,24 +1,46 @@
 .subscriptions--card {
     padding: 1rem;
     display: grid;
-    grid-template-columns: min-content 1fr .5fr;
+    grid-template-columns: min-content 1fr 1fr;
     align-items: center;
     border-bottom: 1px solid #E1E3E6;
     padding: 1rem;
     background: white;
+
     img {
+        opacity: 1;
         padding: 0 1rem 0 0;
         max-width: 48px;
     }
+
     &__details {
         text-align: left;
+
         h4 {
             font-size: 1.2rem;
             margin: 0;
         }
     }
+
     &__price {
         text-align: right;
         font-size: 1.2rem;
+        display: grid;
+        gap: .25rem;
+
+        .switch {
+            justify-self: end;
+        }
+    }
+
+    &.inactive {
+        color: $color-text-2;
+        span {
+            color: $color-text-3;
+        }
+
+        img {
+            opacity: .6;
+        }
     }
 }

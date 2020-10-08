@@ -65,7 +65,7 @@ function displaySubs() {
     `).join('')
 
     const inactiveCards = inactivesubs.map(item => `
-    <div class="subscriptions--card">
+    <div class="subscriptions--card inactive">
         <img src="https://logo.clearbit.com/${item.name}.com"/>
         <div class="subscriptions--card__details">
             <h4>${item.name}</h4>
