@@ -3,7 +3,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-
+    height: 68px;
+    margin-bottom: 1.5rem;
     &__headline {
         grid-column-start: 1;
 
