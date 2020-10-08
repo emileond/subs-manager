@@ -5,6 +5,7 @@ const addForm = document.querySelector('.add-subscription');
 const totalContainer = document.querySelector('.total')
 
 const btnAddSub = document.querySelector('#btn-addNew')
+const btnAddMobile = document.querySelector('.action-btn')
 const modalOuter = document.querySelector('.modal-outer')
 
 let subscriptionsState = [];
@@ -32,10 +33,10 @@ function handleSubmit(e) {
 
     // Push new item into state
     subscriptionsState.push(subsItem)
-    console.log(`There are now ${subscriptionsState.length} items in the state`)
 
     // Clear the form
     e.target.reset();
+    closeModal()
 
     // Fire custom event
     subsContainer.dispatchEvent(new CustomEvent('stateUpdated'));
@@ -86,7 +87,7 @@ function displaySubs() {
 
 function updateTotal() {
     const activeSubs = subscriptionsState.filter(item => item.isActive)
-    const total = activeSubs.reduce((tots, obj) => obj.cost + tots, 0);
+    const total = activeSubs.reduce((tots, obj) => obj.cost + tots, 0).toFixed(2);
 
     console.log('new total is ' + total);
 
@@ -95,12 +96,17 @@ function updateTotal() {
     totalContainer.innerHTML = html;
 }
 
+function updateState() {
+    subsContainer.dispatchEvent(new CustomEvent('stateUpdated'));
+}
+
 function toggleActive(id) {
     const itemRef = subscriptionsState.find(item => item.id === id);
 
     itemRef.isActive = !itemRef.isActive;
 
-    subsContainer.dispatchEvent(new CustomEvent('stateUpdated'));
+    setTimeout(updateState, 250);
+    ;
 }
 
 function saveInLocalStorage() {
@@ -121,8 +127,7 @@ function showModal(e) {
 }
 
 function closeModal(e) {
-    const isOutside = !e.target.closest('.modal-inner');
-    isOutside ? modalOuter.classList.remove('visible') : null
+    modalOuter.classList.remove('visible');
 }
 
 addForm.addEventListener('submit', handleSubmit);
@@ -131,11 +136,18 @@ subsContainer.addEventListener('stateUpdated', updateTotal);
 subsContainer.addEventListener('stateUpdated', saveInLocalStorage);
 
 btnAddSub.addEventListener('click', showModal);
-modalOuter.addEventListener('click', closeModal)
+btnAddMobile.addEventListener('click', showModal);
 
-subsContainer.addEventListener('click', function (e) {
+modalOuter.addEventListener('click', (e) => {
+    const isOutside = !e.target.closest('.modal-inner');
+    isOutside ? closeModal() : null
+})
+
+subsContainer.addEventListener('click', function(e) {
     const id = parseInt(e.target.value)
+
     if (e.target.matches('input[type="checkbox"]')) {
+
         toggleActive(id)
     }
 })
