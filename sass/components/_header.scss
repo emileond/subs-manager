@@ -1,17 +1,25 @@
 .header {
-    color: white;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    background: $color-indigo;
-    padding: 2rem 1rem;
-    border-radius: 0 0 2rem 2rem;
-    margin-bottom: 1rem;
-    h1 {
-        font-weight: 500;
+    &__headline {
+        grid-column-start: 1;
+        h1 {
+            display: inline;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+        h2 {
+            font-weight: 500;
+        }
     }
-    h2 {
-        font-weight: 500;
+    .btn__container{
+        grid-column-start: 2;
+        justify-self: right;
     }
+}
+
+.total {
+    display: inline-block;
 }
