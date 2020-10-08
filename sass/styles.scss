@@ -1,5 +1,6 @@
 @import 'vendor/normalize';
 @import 'base/color';
+@import 'base/breakpoints';
 @import 'base/layout';
 @import 'base/typography';
 
@@ -12,3 +13,5 @@
 @import 'components/switch';
 @import 'components/header';
 @import 'components/navbar';
+@import 'components/modal';
+@import 'components/form';

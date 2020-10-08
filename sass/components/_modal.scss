@@ -1,0 +1,24 @@
+.modal {
+    &-outer {
+        display: none;
+        justify-items: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        background: gray;
+        z-index: 100;
+        &.visible {
+            display: grid;
+        }
+    }
+    &-inner {
+        min-width: 320px;
+        max-width: 600px;
+        min-height: 500px;
+        padding: 2rem;
+        background: white;
+    }
+}

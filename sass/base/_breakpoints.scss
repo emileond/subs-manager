@@ -1,0 +1,25 @@
+$phone: 480px;
+$tablet: 758px;
+$laptop: 1024px;
+
+@mixin responsive ($breakpoint) {
+
+    // $breakpoint is simply a variable that can have several values
+    @if $breakpoint==laptop {
+        @media only screen and (max-width: $laptop) {
+          @content;
+        }
+      }
+
+    @if $breakpoint==tablet {
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==phone {
+    @media only screen and (max-width: $phone) {
+      @content;
+    }
+  }
+}
