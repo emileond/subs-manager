@@ -4,6 +4,7 @@
     width: 100%;
     background: white;
     padding: .8rem 0;
+
     ul {
         margin-block-start: 0;
         margin-block-end: 0;
@@ -14,9 +15,24 @@
         justify-content: space-around;
         align-items: center;
     }
+
     li {
         color: $color-gray;
         display: inline-block;
         font-size: 1.7rem;
+    }
+
+    a {
+        padding: .5rem 1rem;
+        color: $color-gray;
+        &.active {
+            color: $color-indigo;
+        }
+        &:hover {
+            color: $color-indigo;
+        }
+        &:active {
+            color: $color-indigo;
+        }
     }
 }
