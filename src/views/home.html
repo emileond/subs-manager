@@ -1,0 +1,52 @@
+<div class="subscriptions">
+<header class="header">
+    <div class="header__headline">
+        <h1>Subscriptions</h1>
+        <div class="total">
+            <h2>Total: </h2>
+        </div>
+    </div>
+    <div class="btn__container">
+        <a id="btn-addN" class="btn" href="#/add-subscription">
+            + Add Subscription
+        </a>
+    </div>
+</header>
+<a href="/add-subscription.html"><button class="action-btn">+</button></a>
+<div class="modal-outer">
+    <div class="modal-inner">
+        <h2>Add New Subscription</h2>
+        <form class="add-subscription" autocomplete="off">
+            <label for="itemName"> Name:</label>
+            <input class="input" type="text" name="itemName" required>
+
+            <label for="itemCat"> Category:</label>
+            <input class="input" type="text" name="itemCat">
+
+            <label for="itemCost"> Cost:</label>
+            <input class="input" type="number" step="any" name="itemCost" value="0.00">
+
+            <label for="billing">Billing Period:</label>
+
+            <select name="billing">
+                <option value="monthly">Monthly</option>
+                <option value="weekly">Weekly</option>
+                <option value="yearly">Yearly</option>
+            </select>
+
+            <label for="firstPayment"> First payment:</label>
+            <input class="input" type="date" min="1" step="any" name="firstPayment">
+
+            <button class="btn" type="submit">+ Add Subscription</button>
+        </form>
+    </div>
+</div>
+<h2>Active</h2>
+<ul class="subscriptions--list">
+    THIS IS ALSO EMPTY
+</ul>
+<h2>Inactive</h2>
+<ul class="subscriptions--list subscriptions--list__inactive">
+    THIS IS EMPTY
+</ul>
+</div>
